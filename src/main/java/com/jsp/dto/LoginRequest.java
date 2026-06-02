@@ -1,5 +1,4 @@
 package com.jsp.dto;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -10,5 +9,6 @@ import lombok.Setter;
 @AllArgsConstructor
 public class LoginRequest {
     private String email;
+    private Long phone;
     private String password;
 }

@@ -1,7 +1,6 @@
 package com.jsp.controller;
 
 import com.jsp.entity.User;
-import com.jsp.service.UserService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -10,10 +9,10 @@ import java.util.List;
 @RequestMapping("/users")
 public class UserController {
 
-    UserService userService;
+    UserServiceIml userService;
 
     //     Constructor Injection
-    public UserController(UserService userService){
+    public UserController(UserServiceIml userService){
         this.userService=userService;
     }
 

@@ -16,11 +16,15 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @SequenceGenerator(name = "user-suq",allocationSize = 1,initialValue=1000)
     private Integer id;
     private String name;
+    @Column(unique = true)
     private String email;
     private String password;
     private String role;
+    @Enumerated(EnumType.STRING)
+    private Long phone;
 
 
 
