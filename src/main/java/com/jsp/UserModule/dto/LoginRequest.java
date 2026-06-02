@@ -1,4 +1,4 @@
-package com.jsp.dto;
+package com.jsp.UserModule.dto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -7,11 +7,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class LoginResponse {
-    private String token;
-    private String message;
-    private Integer userId;
+public class LoginRequest {
     private String email;
-    private String name;
-    private String role;
+    private String password;
 }

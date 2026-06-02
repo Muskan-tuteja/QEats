@@ -1,4 +1,4 @@
-package com.jsp.dto;
+package com.jsp.UserModule.dto;
 
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -10,7 +10,5 @@ public class UserRequest {
     private String email;
     private Long phone;
     private String password;
-
-
 
 }
