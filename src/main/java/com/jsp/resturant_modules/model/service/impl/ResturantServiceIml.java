@@ -4,6 +4,7 @@ import com.jsp.UserModule.dao.UserRepository;
 import com.jsp.UserModule.model.User;
 import com.jsp.exception.UserException;
 import com.jsp.resturant_modules.model.dto.ResturantRequest;
+import com.jsp.resturant_modules.model.dto.ResturantResponse;
 import com.jsp.resturant_modules.model.model.Resturant;
 import com.jsp.resturant_modules.model.service.ResturantService;
 import lombok.RequiredArgsConstructor;
@@ -18,5 +19,18 @@ public class ResturantServiceIml implements ResturantService {
     @Override
     public Resturant createResturant(ResturantRequest resturantRequest) {
         Integer managerId = resturantRequest.getUser_id();
-        User user = userRepository.findById(managerId).orElseThrow(()-> new UserException("User not Found"));
+        User user = userRepository.findById(managerId)
+                .orElseThrow(() -> new UserException("User not Found"));
+
+        Resturant resturant = new Resturant();
+        resturant.setResturantName(resturantRequest.getResturantName());
+        resturant.setPhone(resturantRequest.getPhone());
+        resturant.setAddress(resturantRequest.getAddress());
+        resturant.setPincode(resturantRequest.getPincode());
+        resturant.setImage(resturantRequest.getImage());
+        resturant.setManager(user);
+        return resturant;
+    }
 }
+
+
