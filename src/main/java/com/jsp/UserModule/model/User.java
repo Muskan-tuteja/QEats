@@ -1,7 +1,7 @@
 package com.jsp.UserModule.model;
 
 import com.jsp.UserModule.dto.UserRequest;
-import com.jsp.resturant_modules.model.Resturant;
+import com.jsp.resturant_modules.model.model.Resturant;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

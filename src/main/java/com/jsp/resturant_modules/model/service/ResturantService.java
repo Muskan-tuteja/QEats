@@ -1,6 +1,6 @@
-package com.jsp.resturant_modules.model.service.impl;
+package com.jsp.resturant_modules.model.service;
 
-import com.jsp.resturant_modules.model.Resturant;
+import com.jsp.resturant_modules.model.model.Resturant;
 import com.jsp.resturant_modules.model.dto.ResturantRequest;
 import org.springframework.stereotype.Service;
 

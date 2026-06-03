@@ -1,4 +1,4 @@
-package com.jsp.resturant_modules.model;
+package com.jsp.resturant_modules.model.model;
 
 import com.jsp.UserModule.model.User;
 import jakarta.persistence.*;
