@@ -11,4 +11,8 @@ public interface UserService {
     UserResponse register(UserRequest user);
     UserResponse login(LoginRequest login);
     UserResponse profile(String id);
+
+    UserResponse deleted();
+
+    UserResponse deleted(String id);
 }
