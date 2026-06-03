@@ -1,6 +1,7 @@
 package com.jsp.UserModule.model;
 
 import com.jsp.UserModule.dto.UserRequest;
+import com.jsp.resturant_modules.model.Resturant;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -27,6 +28,9 @@ public class User {
     private Role role;
     private String password;
     private Boolean active;
+
+    @OneToOne(mappedBy = "manager")
+    private Resturant resturant;
 
     public User(UserRequest userRequest) {
         this.name=userRequest.getName();

@@ -7,17 +7,25 @@ import com.jsp.UserModule.dto.UserRequest;
 import com.jsp.UserModule.dto.UserResponse;
 
 import com.jsp.UserModule.dao.UserRepository;
+import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+
 @Service
+@RequiredArgsConstructor
+
 public class UserServiceImp implements UserService {
 
     private final UserRepository userRepository;
+    private final PasswordEncoder passwordEncoder;
 
 
-    public UserServiceImp(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
+
+//    public UserServiceImp(UserRepository userRepository, PasswordEncoder passwordEncoder) {
+//        this.userRepository = userRepository;
+//        this.passwordEncoder = passwordEncoder;
+//    }
 
     @Override
     public UserResponse register(UserRequest userRequest) {
@@ -36,12 +44,21 @@ public class UserServiceImp implements UserService {
 
     @Override
     public UserResponse login(LoginRequest login){
-        return null;
+        User user = userRepository.findByEmail(login.getEmail()).orElseThrow(()->new RuntimeException("Invalid email"));
+        if(user.getPassword().equals(login.getPassword())){
+            UserResponse userResponse = new UserResponse(user);
+            return userResponse;
+        }else {
+            throw new RuntimeException("Invalid password");
+        }
+
+
     }
 
     @Override
     public UserResponse profile(String id){
-        return null;
+        User user = userRepository.findById(Integer.parseInt(id)).orElseThrow(()->new RuntimeException("User not found"));
+        return new UserResponse(user);
     }
 
 
