@@ -1,4 +1,5 @@
 package com.jsp.UserModule.service;
+import com.jsp.UserModule.model.Role;
 import com.jsp.UserModule.model.User;
 
 import com.jsp.UserModule.dto.LoginRequest;
@@ -6,8 +7,9 @@ import com.jsp.UserModule.dto.UserRequest;
 import com.jsp.UserModule.dto.UserResponse;
 
 import com.jsp.UserModule.dao.UserRepository;
+import org.springframework.stereotype.Service;
 
-
+@Service
 public class UserServiceImp implements UserService {
 
     private final UserRepository userRepository;
@@ -24,9 +26,8 @@ public class UserServiceImp implements UserService {
             throw new RuntimeException("Email id already exists");
         }
         User user = new User(userRequest);
-        user.setRole("CUSTOMER");
+        user.setRole(Role.CUSTOMER);
         user.setActive(true);
-//        SAVE TO DATABASE
         User savedUser=userRepository.save(user);
 
         return new UserResponse(savedUser);

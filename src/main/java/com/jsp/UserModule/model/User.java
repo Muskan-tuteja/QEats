@@ -1,7 +1,6 @@
 package com.jsp.UserModule.model;
 
 import com.jsp.UserModule.dto.UserRequest;
-import com.jsp.UserModule.dto.UserResponse;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -25,7 +24,7 @@ public class User {
     private String email;
     private Long phone;
     @Enumerated(EnumType.STRING)
-    private String role;
+    private Role role;
     private String password;
     private Boolean active;
 
