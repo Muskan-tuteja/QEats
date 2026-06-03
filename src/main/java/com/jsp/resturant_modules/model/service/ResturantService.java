@@ -1,5 +1,6 @@
 package com.jsp.resturant_modules.model.service;
 
+import com.jsp.exception.UserException;
 import com.jsp.resturant_modules.model.model.Resturant;
 import com.jsp.resturant_modules.model.dto.ResturantRequest;
 import org.springframework.stereotype.Service;
@@ -7,6 +8,6 @@ import org.springframework.stereotype.Service;
 @Service
 public interface ResturantService {
 
-    Resturant createResturant(ResturantRequest resturantRequest);
+    Resturant createResturant(ResturantRequest resturantRequest) throws UserException;
 
 }

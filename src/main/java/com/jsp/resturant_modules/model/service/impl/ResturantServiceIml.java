@@ -17,10 +17,10 @@ public class ResturantServiceIml implements ResturantService {
     private final ResturantService resturantService;
 
     @Override
-    public Resturant createResturant(ResturantRequest resturantRequest) {
+    public Resturant createResturant(ResturantRequest resturantRequest) throws UserException {
         Integer managerId = resturantRequest.getUser_id();
         User user = userRepository.findById(managerId)
-                .orElseThrow(() -> new UserException("User not Found"));
+                .orElseThrow(()-> new UserException("User not Found"));
 
         Resturant resturant = new Resturant();
         resturant.setResturantName(resturantRequest.getResturantName());
